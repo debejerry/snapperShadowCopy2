@@ -62,7 +62,11 @@ def onSnapCreated(configName, snapshotId):
 	print str(configName) + " / " + str(snapshotId)
 	
 	config = getSnapperConfig(configName)
-	
+	print "Is " + config.Path"
+	print "contained in:"
+	for path in vfsEnabledSmbShares
+		print path
+		
 	if config.Path in vfsEnabledSmbShares:
 # Needs improvement so that the path configured by "shadow:snapdir" in smb.conf gets created if does not exist 
 		snapshot = getSnapperSnapshot(configName, snapshotId)
@@ -144,8 +148,7 @@ def getSmbShadowCopyEnabledPathes():
 							
 					except:
 						print("exception on %s!" % option)
-	for path in sharePathes
-		print path
+	
 	return sharePathes
 	
 vfsEnabledSmbShares = getSmbShadowCopyEnabledPathes()
