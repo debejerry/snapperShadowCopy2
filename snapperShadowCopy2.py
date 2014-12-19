@@ -20,9 +20,9 @@
 #	   Needs some testing with samba 3.6.6 an according shadwCopy2 module as initial testing was done on samba4
 #
 #	- commenting the functions
-#	- add a loging facility 
+#	- add a loging facility
 #	- daemonize the script
-#	
+#
 #
 #
 
@@ -59,8 +59,8 @@ def onSnapCreated(configName, snapshotId):
 		snapshot is recognized by the samba vfs module shadowCopy2.
 		Symlinks are only created for shares that are configured with
 		with the 'vfs objects = shadowCopy2' option in 'smb.conf'"""
-	#print str(configName) + " / " + str(snapshotId)
-	
+	print str(configName) + " / " + str(snapshotId)
+
 	config = getSnapperConfig(configName)
 	print "#####################################################"
 	print "is smb.Conf Path:            " + config.Path
@@ -69,9 +69,9 @@ def onSnapCreated(configName, snapshotId):
 		print path
 	print "#####################################################"
 	print ""
-		
+
 	if config.Path in vfsEnabledSmbShares:
-# Needs improvement so that the path configured by "shadow:snapdir" in smb.conf gets created if does not exist 
+# Needs improvement so that the path configured by "shadow:snapdir" in smb.conf gets created if does not exist
 		snapshot = getSnapperSnapshot(configName, snapshotId)
 	#	print str(snapshot)
 		ts = datetime.datetime.fromtimestamp(snapshot.snapCreationTime)
@@ -88,7 +88,7 @@ def onSnapCreated(configName, snapshotId):
 	else:
 		print "No 'shadowCopy2' enabled smb share found with path '"+config.Path+"' !"
 		print "Nothing to do..."
-			
+
 
 def onSnapsDeleted(configName, message):
 	""" Handler function for the 'snapperd' dbus signal 'SnapshotDeleted'
@@ -110,14 +110,14 @@ def onSnapsDeleted(configName, message):
 		print "'" + path + "' does not exist, no action to do"
 		print "Nothing to do..."
 
-def getSnapperConfigs():	
+def getSnapperConfigs():
 	configs = snapperIface.ListConfigs()
 	return configs
-	
+
 def getSnapperConfig(configName):
 	config = snapperConfig._make(snapperIface.GetConfig(configName))
 	return config
-		
+
 def getSnapshotsList(configName):
 	snapshots = snapperIface.ListSnapshots(configName)
 	return snapshots
@@ -125,36 +125,42 @@ def getSnapshotsList(configName):
 def getSnapperSnapshot(configName, snapId):
 	snapshot = snapperSnapshot._make(snapperIface.GetSnapshot(configName, snapId))
 	return snapshot
-	
+
 
 
 def getSmbShadowCopyEnabledPathes():
     # List gets filled with share pathes that have the searched option set with the searched value / array is used as return value
-	sharePathes = [] 
+	sharePathes = []
 	configFile = "/etc/samba/smb.conf"
 	vfsOption = "vfs objects"
 	vfsSearchValue = "shadow_copy2"
-	
+
 	Config = ConfigParser.ConfigParser()
 	Config.read(configFile)
 	sections = Config.sections()
-
+	print " reading smb.conf:"
+	print "###########################"
 	for section in sections:
 		if section != "global":
+			print section
 			options = Config.options(section)
 			for option in options:
+				print section + "  :  " + option + "=" +Config.get(section, option)
 				if option == vfsOption:
 					try:
 						optionValue = Config.get(section, option)
+						print optionValue
 						if optionValue in vfsSearchValue:
 							sharePathes.append(Config.get(section, "path"))
-							
+
 					except:
 						print("exception on %s!" % option)
-	
+	print "#############################"
+	print " done with reading"
 	return sharePathes
-	
+
 vfsEnabledSmbShares = getSmbShadowCopyEnabledPathes()
+print "using share pathes for comparision: " + str(vfsEnabledSmbShares)
 # List used for storing pathes to smb shares that have 'shadowCopy2' enabled in smb.conf """
 # Thought: Maybe this should get it's own module....
 
