@@ -144,7 +144,8 @@ def getSmbShadowCopyEnabledPathes():
 							
 					except:
 						print("exception on %s!" % option)
-					
+	for path in sharePathes
+		print path
 	return sharePathes
 	
 vfsEnabledSmbShares = getSmbShadowCopyEnabledPathes()
