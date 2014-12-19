@@ -59,18 +59,21 @@ def onSnapCreated(configName, snapshotId):
 		snapshot is recognized by the samba vfs module shadowCopy2.
 		Symlinks are only created for shares that are configured with
 		with the 'vfs objects = shadowCopy2' option in 'smb.conf'"""
-	print str(configName) + " / " + str(snapshotId)
+	#print str(configName) + " / " + str(snapshotId)
 	
 	config = getSnapperConfig(configName)
-	print "Is " + config.Path"
-	print "contained in:"
-	for path in vfsEnabledSmbShares
+	print "#####################################################"
+	print "is smb.Conf Path:            " + config.Path
+	print "contained in snapper config path:    "
+	for path in vfsEnabledSmbShares:
 		print path
+	print "#####################################################"
+	print ""
 		
 	if config.Path in vfsEnabledSmbShares:
 # Needs improvement so that the path configured by "shadow:snapdir" in smb.conf gets created if does not exist 
 		snapshot = getSnapperSnapshot(configName, snapshotId)
-		print str(snapshot)
+	#	print str(snapshot)
 		ts = datetime.datetime.fromtimestamp(snapshot.snapCreationTime)
 		linkTarget = str(config.Path) +"/.snapshots/"+str(snapshotId)+"/snapshot"
 		linkPath = str(config.Path) +"/.vfs/@GMT-"+ts.strftime("%Y.%m.%d-%H.%M.%S")
