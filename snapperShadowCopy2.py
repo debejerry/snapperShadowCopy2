@@ -167,7 +167,7 @@ def onSnapsDeleted(configName, message):
     logging.info(config.Name + " /" + str(message))
     path = config.Path+"/.vfs/"
     #needs improvement to get path from smbConf
-    deleteSymlinks(path, message[0])
+    deleteSymlinks(path)
     
 
 def getSnapperConfigs():
