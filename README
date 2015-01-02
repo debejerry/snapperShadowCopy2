@@ -5,12 +5,12 @@ snapperShadowCopy2
 This script is in ALPHA Status !
 Use it at your own Risk!!! 
 Only Use it if you understand what it is doing!!
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 How to install snapperShadowCopy2?
   so far an install script is going to be developed but it is not ready atm.
   You have to to do some things manually to get it working (see dependencies).
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 Does this script have dependencies?
   Yes, it does. It has some python depencies as well as dependencies on other packages:
@@ -29,7 +29,7 @@ Does this script have dependencies?
         the shadowCopy2 module needs to be enabled on a per share basis see ->       
         "https://www.samba.org/samba/docs/man/manpages/vfs_shadow_copy2.8.html"
         for usage options.
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 How to use this script?
   If all dependencies are installed, things should be easy:
