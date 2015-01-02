@@ -12,7 +12,9 @@ How to install snapperShadowCopy2?
 
 so far an install script is going to be developed but it is not ready atm.
 You have to to do some things manually to get it working (see dependencies).
+
 --------------------------------------------------------------------------------------------
+
 Does this script have dependencies?
 
 Yes, it does. It has some python depencies as well as dependencies on other packages:
@@ -32,7 +34,9 @@ Yes, it does. It has some python depencies as well as dependencies on other pack
       for usage options.
       
 --------------------------------------------------------------------------------------------
+
 How to use this script?
+
 If all dependencies are installed, things should be easy:
   - mount your btrfs volume i.e. to "/btrfs/volume1"
   - create a snapper config "snapper -c myConfigName create-config /btrfs/volume1"
