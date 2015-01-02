@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #Copyright (C) 2014 OpenMediaVault Plugin Developers
 #
@@ -40,7 +40,9 @@ import logging
 
 #import smbConfNotify2
 
-LOG_FILENAME = os.path.dirname(os.path.realpath(__file__)) + '/snapperShadowCopy2.log'
+#LOG_FILENAME = os.path.dirname(os.path.realpath(__file__)) + '/snapperShadowCopy2.log'
+LOG_FILENAME = '/var/log/snapperShadowCopy2.log'
+
 LOG_LEVEL = logging.INFO # Maybe: logging.DEBUG / logging.INFO / logging.ERROR / logging.WARNING
 LOG_FORMAT = '%(asctime)s-%(levelname)-5s-%(funcName)-15s: %(message)s'
 #old LOG_FORMAT #'%(asctime)s-%(levelname)s-%(funcName)s: %(message)s'

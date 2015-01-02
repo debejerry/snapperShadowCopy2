@@ -1,0 +1,3 @@
+#!/bin/sh
+update-rc.d snapperShadowCopy2 defaults
+service snapperShadowCopy2 start

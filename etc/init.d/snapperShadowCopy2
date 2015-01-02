@@ -1,5 +1,4 @@
 #!/bin/sh
- 
 ### BEGIN INIT INFO
 # Provides: snapperShadowCopy2
 # Required-Start: $remote_fs $syslog
@@ -11,7 +10,7 @@
 ### END INIT INFO
  
 # Change the next 3 lines to suit where you install your script and what you want to call it
-DIR=/usr/local/bin/snappersc2
+DIR=/usr/share/snappersc2
 DAEMON=$DIR/snapperShadowCopy2.py
 DAEMON_NAME=snapperShadowCopy2
 
