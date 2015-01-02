@@ -3,14 +3,18 @@ snapperShadowCopy2
 -->>   Caution  <<--
 
 This script is in ALPHA Status !
-Use it at your own Risk!!!
+
+Use it at your own Risk!!! 
+
 Only Use it if you understand what it is doing!!
+
 
 --------------------------------------------------------------------------------------------
 
 How to install snapperShadowCopy2?
 
 so far an install script is going to be developed but it is not ready atm.
+
 You have to to do some things manually to get it working (see dependencies).
 
 --------------------------------------------------------------------------------------------
@@ -18,6 +22,7 @@ You have to to do some things manually to get it working (see dependencies).
 Does this script have dependencies?
 
 Yes, it does. It has some python depencies as well as dependencies on other packages:
+  
   Python dependencies:
     - python3-gi (see -> https://packages.debian.org/de/wheezy/python/python3-gi )
     - python-dbus (see -> https://packages.debian.org/de/wheezy/python/python-dbus )
@@ -38,21 +43,22 @@ Yes, it does. It has some python depencies as well as dependencies on other pack
 How to use this script?
 
 If all dependencies are installed, things should be easy:
+
   - mount your btrfs volume i.e. to "/btrfs/volume1"
   - create a snapper config "snapper -c myConfigName create-config /btrfs/volume1"
     creating a default config enables timeline snapshots, i.e. 10 hourlies, 10 dailies and s.o.
   - set up the smb share for "/btrfs/volume1" 
     - make sure the 'path' option for your share is the same as the path your snapper config refers to:
-    smb.conf:
-      [global]
-      unix_etensions = no
-      [myShare]
-      path = /btrfs/volume1 #needs to be the sam as in the "snapper -c myConfigName create-config /btrfs/volume1" cmd
-      vfs objects = shadowCopy2
-      shadow:snapdir = .vfs # is an example path that would refer to "/btrfs/volume1/.vfs"
-      shadow:basedir = /btrfs/volume1
-      # for samba 3.6.6 do not use the option "shadow:localtime = yes/no" 
-      # no idea why but breaks snapshot visibilty in Windows Explorer
+    >smb.conf:
+    >  [global]
+    >  unix_etensions = no
+    >  [myShare]
+    >  path = /btrfs/volume1 #needs to be the sam as in the "snapper -c myConfigName create-config /btrfs/volume1" cmd
+    >  vfs objects = shadowCopy2
+    >  shadow:snapdir = .vfs # is an example path that would refer to "/btrfs/volume1/.vfs"
+    >  shadow:basedir = /btrfs/volume1
+    >  # for samba 3.6.6 do not use the option "shadow:localtime = yes/no" 
+    >  # no idea why but breaks snapshot visibilty in Windows Explorer
   
   - restart samba
   - run snapperShadowCopy2.py: 
