@@ -8,10 +8,12 @@ Only Use it if you understand what it is doing!!
 
 
 How to install snapperShadowCopy2?
+
 so far an install script is going to be developed but it is not ready atm.
 You have to to do some things manually to get it working (see dependencies).
 
 Does this script have dependencies?
+
 Yes, it does. It has some python depencies as well as dependencies on other packages:
   Python dependencies:
     - python3-gi (see -> https://packages.debian.org/de/wheezy/python/python3-gi )
