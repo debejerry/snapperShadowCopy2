@@ -4,7 +4,7 @@ snapperShadowCopy2
 
 This script is in ALPHA Status !
 Use it at your own Risk!!!
-Only Use it if you understand what it doing!!
+Only Use it if you understand what it is doing!!
 
 
 
