@@ -6,12 +6,13 @@ This script is in ALPHA Status !
 Use it at your own Risk!!!
 Only Use it if you understand what it is doing!!
 
+--------------------------------------------------------------------------------------------
 
 How to install snapperShadowCopy2?
 
 so far an install script is going to be developed but it is not ready atm.
 You have to to do some things manually to get it working (see dependencies).
-
+--------------------------------------------------------------------------------------------
 Does this script have dependencies?
 
 Yes, it does. It has some python depencies as well as dependencies on other packages:
@@ -30,6 +31,7 @@ Yes, it does. It has some python depencies as well as dependencies on other pack
       "https://www.samba.org/samba/docs/man/manpages/vfs_shadow_copy2.8.html"
       for usage options.
       
+--------------------------------------------------------------------------------------------
 How to use this script?
 If all dependencies are installed, things should be easy:
   - mount your btrfs volume i.e. to "/btrfs/volume1"
@@ -58,5 +60,3 @@ If all dependencies are installed, things should be easy:
     folder that will look like: '@GMT-"%Y.%m.%d-%H.%M.%S' for resulting symlink:
     "/btrfs/volume1/.vfs/@GMT-2014.12.28-14.33.45"
   - browse your share through Windows Explorer and check the "previous versions" tab it should show you the snapshot      you just created
-  - 
-
