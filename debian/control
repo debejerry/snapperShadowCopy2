@@ -4,7 +4,7 @@ Priority: optional
 Architecture: i386, amd64
 Maintainer: debejerry <debejerry@gmail.com>
 Homepage: http://github.com/debejerry/snapperShadowCopy2
-Depends: debhelper (>= 9.0.0 ), snapper (>= 0.2.4), snapper (>= 3.6.6), build-essential
+Depends: debhelper (>= 9.0.0 ), snapper (>= 0.2.4), snapper (>= 3.6.6), python3-gi (>= 3.2.2), build-essential
 Description: Wrapper service around snapper (http://snapper.io) and samba with shares 
  that have the vfs module shadowCopy2 enabled, so that snapper created snapshots 
  appear on the previous version tab in Windows Explorer.
